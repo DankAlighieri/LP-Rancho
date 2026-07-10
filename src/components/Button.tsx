@@ -1,0 +1,19 @@
+import type { AnchorHTMLAttributes, ReactNode } from "react";
+
+type ButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
+  children: ReactNode;
+  variant?: "primary" | "secondary" | "light";
+};
+
+export function Button({
+  children,
+  className = "",
+  variant = "primary",
+  ...props
+}: ButtonProps) {
+  return (
+    <a className={`button button-${variant} ${className}`.trim()} {...props}>
+      {children}
+    </a>
+  );
+}
