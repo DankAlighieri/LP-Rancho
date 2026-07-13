@@ -1,52 +1,84 @@
 import { Instagram, Mail, Phone } from "lucide-react";
-import { Logo } from "../components/Logo";
 import { navItems } from "../data/siteData";
+
+import logo from "../assets/logoTransp.webp";
 
 export function Footer() {
   return (
-    <footer className="site-footer">
-      <div className="container footer-grid">
-        <div className="footer-brand">
-          <Logo />
-          <p>Produção responsável e certificada no Vale do São Francisco.</p>
+    <footer className="bg-green-dark pt-[72px] text-white/80">
+      <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-[52px] md:w-[min(1180px,calc(100%-40px))] md:grid-cols-2 lg:w-[min(1180px,calc(100%-48px))] lg:grid-cols-[1.15fr_2fr] lg:items-start lg:gap-[84px]">
+        <div className="flex flex-col items-center justify-center text-center lg:text-left">
+          <img
+            src={logo}
+            alt="Logo Rancho Sagrada Família"
+            className="h-12 w-auto shrink-0 object-contain drop-shadow-sm transition-transform duration-300 hover:scale-105 md:h-14 lg:h-16"
+          />
+
+          <p className="mt-[22px] max-w-xs text-base text-white/70">
+            Produção responsável e certificada no Vale do São Francisco.
+          </p>
         </div>
-        <div>
-          <h2>Navegação</h2>
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href}>
-              {item.label}
+
+        <div className="flex flex-wrap justify-center gap-x-12 gap-y-10 px-0 md:col-span-1 md:justify-start lg:justify-between">
+          <div className="flex min-w-[130px] flex-1 flex-col items-center md:items-start">
+            <h2 className="mb-[18px] font-body text-base font-extrabold text-white">
+              Navegação
+            </h2>
+            {navItems.map((item) => (
+              <a
+                className="mt-2 flex w-fit items-center gap-2 text-white/70 hover:text-mango-orange"
+                key={item.href}
+                href={item.href}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+
+          <div className="flex min-w-[160px] flex-1 flex-col items-center md:items-start">
+            <h2 className="mb-[18px] font-body text-base font-extrabold text-white">
+              Informações
+            </h2>
+            <a className="mt-3 flex w-fit items-center gap-2 text-white/70 hover:text-mango-orange" href="#qualidade">Qualidade</a>
+            <a className="mt-3 flex w-fit items-center gap-2 text-white/70 hover:text-mango-orange" href="#exportacao">Exportação</a>
+            <a className="mt-3 flex w-fit items-center gap-2 text-white/70 hover:text-mango-orange" href="#contato">Contato</a>
+          </div>
+
+          <div className="flex min-w-[150px] flex-1 flex-col items-center md:items-start">
+            <h2 className="mb-[18px] font-body text-base font-extrabold text-white">
+              Contato
+            </h2>
+            <a
+              className="mt-3 flex w-fit items-center gap-2 text-white/70 hover:text-mango-orange"
+              href="https://wa.me/5574999330190"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Phone size={16} aria-hidden="true" />
+              WhatsApp
             </a>
-          ))}
-        </div>
-        <div>
-          <h2>Informações</h2>
-          <a href="#qualidade">Qualidade</a>
-          <a href="#exportacao">Exportação</a>
-          <a href="#contato">Contato</a>
-          <a href="#privacidade">Política de Privacidade</a>
-        </div>
-        <div>
-          <h2>Contato</h2>
-          <a href="https://wa.me/5574999330190" target="_blank" rel="noreferrer">
-            <Phone size={16} aria-hidden="true" />
-            WhatsApp
-          </a>
-          <a href="mailto:georgeano.santos@uol.com.br">
-            <Mail size={16} aria-hidden="true" />
-            E-mail
-          </a>
-          <a
-            href="https://www.instagram.com/ranchosagradafamilia"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Instagram size={16} aria-hidden="true" />
-            Instagram
-          </a>
+            <a
+              className="mt-3 flex w-fit items-center gap-2 text-white/70 hover:text-mango-orange"
+              href="mailto:georgeano.santos@uol.com.br"
+            >
+              <Mail size={16} aria-hidden="true" />
+              E-mail
+            </a>
+            <a
+              className="mt-3 flex w-fit items-center gap-2 text-white/70 hover:text-mango-orange"
+              href="https://www.instagram.com/ranchosagradafamilia"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Instagram size={16} aria-hidden="true" />
+              Instagram
+            </a>
+          </div>
         </div>
       </div>
-      <div className="container footer-bottom">
-        © 2024 Rancho Sagrada Família. Todos os direitos reservados.
+      <div className="mx-auto mt-14 flex w-[min(1180px,calc(100%-32px))] flex-col items-center justify-between gap-3 border-t border-white/10 py-[22px] text-center text-sm text-white/60 md:w-[min(1180px,calc(100%-40px))] md:flex-row md:text-left lg:w-[min(1180px,calc(100%-48px))]">
+        <span>© 2026 Rancho Sagrada Família. Todos os direitos reservados.</span>
+        <span>Desenvolvido por Guilherme Emetério Designer</span>
       </div>
     </footer>
   );

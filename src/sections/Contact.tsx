@@ -2,25 +2,36 @@ import { Instagram, Mail, Phone } from "lucide-react";
 
 export function Contact() {
   return (
-    <section className="section contact" id="contato">
-      <div className="container contact-grid">
-        <div className="contact-copy">
-          <span className="eyebrow">Contato comercial</span>
+    <section className="relative py-[68px] md:py-[82px] lg:py-[104px]" id="contato">
+      <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] items-start gap-[52px] md:w-[min(1180px,calc(100%-40px))] lg:w-[min(1180px,calc(100%-48px))] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-[78px]">
+        <div>
+          <span className="mb-[18px] inline-flex w-fit items-center rounded-full bg-mango-orange/10 px-3.5 py-2 text-[0.82rem] font-extrabold uppercase tracking-normal text-earth">
+            Contato comercial
+          </span>
           <h2>Fale com nossa equipe comercial</h2>
-          <p>
+          <p className="mt-0">
             Entre em contato para informações sobre disponibilidade, produção,
             fornecimento e oportunidades comerciais.
           </p>
-          <div className="contact-list">
-            <a href="https://wa.me/5574999330190" target="_blank" rel="noreferrer">
+          <div className="mt-[38px] grid gap-5">
+            <a
+              className="inline-flex w-fit items-center gap-3 text-[1.08rem] font-extrabold text-green-deep"
+              href="https://wa.me/5574999330190"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Phone size={24} aria-hidden="true" />
               +55 (74) 9 9933-0190
             </a>
-            <a href="mailto:georgeano.santos@uol.com.br">
+            <a
+              className="inline-flex w-fit items-center gap-3 text-[1.08rem] font-extrabold text-green-deep"
+              href="mailto:georgeano.santos@uol.com.br"
+            >
               <Mail size={24} aria-hidden="true" />
               georgeano.santos@uol.com.br
             </a>
             <a
+              className="inline-flex w-fit items-center gap-3 text-[1.08rem] font-extrabold text-green-deep"
               href="https://www.instagram.com/ranchosagradafamilia"
               target="_blank"
               rel="noreferrer"
@@ -31,7 +42,7 @@ export function Contact() {
           </div>
         </div>
         <form
-          className="contact-form"
+          className="grid gap-[22px] rounded-[18px] border border-sand/80 bg-white p-6 shadow-lg md:grid-cols-2 md:p-[38px]"
           action="https://api.web3forms.com/submit"
           method="POST"
         >
@@ -48,36 +59,64 @@ export function Contact() {
             style={{ display: "none" }}
             tabIndex={-1}
           />
-          <label>
+          <label className="grid gap-2.5 font-semibold text-soft">
             Nome
-            <input name="name" type="text" placeholder="Seu nome" required />
+            <input
+              className="w-full rounded-[10px] border border-muted/35 bg-white px-[18px] py-4 text-base text-soft transition focus:border-leaf-olive focus:shadow-[0_0_0_4px_rgba(146,152,46,0.16)]"
+              name="name"
+              type="text"
+              placeholder="Seu nome"
+              required
+            />
           </label>
-          <label>
+          <label className="grid gap-2.5 font-semibold text-soft">
             Empresa
-            <input name="company" type="text" placeholder="Nome da empresa" />
+            <input
+              className="w-full rounded-[10px] border border-muted/35 bg-white px-[18px] py-4 text-base text-soft transition focus:border-leaf-olive focus:shadow-[0_0_0_4px_rgba(146,152,46,0.16)]"
+              name="company"
+              type="text"
+              placeholder="Nome da empresa"
+            />
           </label>
-          <label>
+          <label className="grid gap-2.5 font-semibold text-soft">
             E-mail
-            <input name="email" type="email" placeholder="seu@email.com" required />
+            <input
+              className="w-full rounded-[10px] border border-muted/35 bg-white px-[18px] py-4 text-base text-soft transition focus:border-leaf-olive focus:shadow-[0_0_0_4px_rgba(146,152,46,0.16)]"
+              name="email"
+              type="email"
+              placeholder="seu@email.com"
+              required
+            />
           </label>
-          <label>
+          <label className="grid gap-2.5 font-semibold text-soft">
             Telefone/WhatsApp
-            <input name="phone" type="tel" placeholder="+55 (00) 00000-0000" />
+            <input
+              className="w-full rounded-[10px] border border-muted/35 bg-white px-[18px] py-4 text-base text-soft transition focus:border-leaf-olive focus:shadow-[0_0_0_4px_rgba(146,152,46,0.16)]"
+              name="phone"
+              type="tel"
+              placeholder="+55 (00) 00000-0000"
+            />
           </label>
-          <label className="form-full">
+          <label className="grid gap-2.5 font-semibold text-soft md:col-span-2">
             Mensagem
             <textarea
+              className="w-full resize-y rounded-[10px] border border-muted/35 bg-white px-[18px] py-4 text-base text-soft transition focus:border-leaf-olive focus:shadow-[0_0_0_4px_rgba(146,152,46,0.16)]"
               name="message"
               placeholder="Como podemos ajudar?"
               rows={5}
               required
             />
           </label>
-          <p className="privacy-note">
+          <p className="text-sm leading-[1.45] text-muted md:col-span-2">
             Ao enviar, você concorda que seus dados sejam utilizados para
             retorno do contato solicitado.
           </p>
-          <button type="submit">Enviar solicitação</button>
+          <button
+            className="min-h-[58px] cursor-pointer rounded-[10px] bg-mango-orange text-base font-extrabold text-soft transition hover:-translate-y-0.5 hover:bg-mango-dark md:col-span-2"
+            type="submit"
+          >
+            Enviar solicitação
+          </button>
         </form>
       </div>
     </section>
