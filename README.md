@@ -29,7 +29,3 @@ A página já inclui fallbacks visuais com utilitários Tailwind para manter o l
 - `manga-folhas.jpg`
 - `mapa-exportacao.svg`
 - `logo-rancho.svg` ou `logo-rancho.png`
-
-## Formulário
-
-O formulário está preparado para Web3Forms. Antes de publicar, substitua `SUBSTITUIR_PELA_ACCESS_KEY` em `src/sections/Contact.tsx`.
