@@ -1,6 +1,7 @@
 import { Header } from "./sections/Header";
 import { Hero } from "./sections/Hero";
 import { About } from "./sections/About";
+import { History } from "./sections/History";
 import { FieldCommitment } from "./sections/FieldCommitment";
 import { Products } from "./sections/Products";
 import { Process } from "./sections/Process";
@@ -18,11 +19,12 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <History />
         <FieldCommitment />
         <Products />
         <Process />
         <Capacity />
-        {/*<Certifications />*/}
+        <Certifications />
         <Markets />
         <Location />
         <Contact />

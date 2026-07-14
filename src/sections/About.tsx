@@ -15,6 +15,7 @@ export function About() {
             src={manOnField}
             alt="Produtor analisando uma manga no pomar"
             className="relative h-[420px] w-full object-cover shadow-lift [clip-path:polygon(8%_0,100%_0,92%_100%,0_100%)] md:h-[560px]"
+            loading="lazy"
           />
         </div>
 
@@ -23,21 +24,20 @@ export function About() {
             Nossa história
           </span>
 
-          <h2 className="max-w-[560px] text-green-dark textShadow-soft">
+          <h2 className="max-w-[560px] text-green-dark drop-shadow-sm">
             Tradição familiar com visão global
           </h2>
 
           <p className="mt-7">
-            Localizado no coração do Vale do São Francisco, o Rancho Sagrada
-            Família é referência na fruticultura de alto desempenho. Unimos o
-            conhecimento geracional sobre a terra às práticas modernas de
-            manejo sustentável.
+            No Rancho Sagrada Família, o conhecimento sobre a terra passa de
+            geração em geração. A família acompanha de perto o pomar, a equipe
+            e cada decisão que define a qualidade da colheita.
           </p>
 
           <p className="mt-5">
-            Nossa missão é levar o sabor autêntico e a qualidade nutricional da
-            manga brasileira para mercados exigentes, garantindo rastreabilidade
-            desde a florada até o porto de destino.
+            Essa presença diária se une à tecnologia, ao manejo sustentável e à
+            rastreabilidade para levar mangas do Vale do São Francisco a mercados
+            exigentes, sem perder a proximidade de quem vive a produção.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-5">
@@ -47,15 +47,6 @@ export function About() {
               </strong>
               <span className="mt-3 block text-sm font-semibold text-muted">
                 Rastreável
-              </span>
-            </div>
-
-            <div className="min-w-[150px] flex-1 border-l-4 border-leaf-olive pl-5 sm:flex-none sm:basis-[210px]">
-              <strong className="block font-heading text-[1.65rem] font-extrabold leading-none text-leaf-olive">
-                +15
-              </strong>
-              <span className="mt-3 block text-sm font-semibold text-muted">
-                Anos de experiência
               </span>
             </div>
           </div>

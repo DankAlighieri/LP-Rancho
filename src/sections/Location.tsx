@@ -1,7 +1,7 @@
 import { MapPin } from "lucide-react";
 
 const mapEmbedUrl =
-  "https://www.google.com/maps?q=Juazeiro%2C%20Bahia%2C%20Brasil&output=embed";
+  "https://www.google.com/maps?q=-9.5575528,-40.6065694&z=14&t=k&hl=pt-BR&output=embed";
 
 export function Location() {
   return (
@@ -26,7 +26,7 @@ export function Location() {
           </span>
           <a
             className="mt-7 flex w-fit font-extrabold text-mango-dark underline decoration-2 underline-offset-[6px]"
-            href="https://www.google.com/maps/search/?api=1&query=Juazeiro%2C%20Bahia"
+            href="https://www.google.com/maps/search/?api=1&query=-9.5575528%2C-40.6065694"
             target="_blank"
             rel="noreferrer"
           >
@@ -36,12 +36,12 @@ export function Location() {
 
         <div className="overflow-hidden rounded-[18px] border border-sand/80 bg-white p-2 shadow-lg">
           <iframe
+            title="Localização do Rancho Sagrada Família"
             src={mapEmbedUrl}
-            title="Mapa de Juazeiro, Bahia"
-            className="h-[360px] w-full rounded-[14px] border-0 md:h-[430px] lg:h-[500px]"
-            allowFullScreen
+            className="h-[420px] w-full rounded-[8px] border-0 md:h-[520px]"
             loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
       </div>

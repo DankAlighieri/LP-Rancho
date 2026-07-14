@@ -24,8 +24,8 @@ export function Hero() {
         className="lg:pr-[60svh]"
       >
         <div className="relative z-10 mx-auto w-[min(1180px,calc(100%-32px))] pt-10 text-white md:w-[min(1180px,calc(100%-40px))] lg:w-[min(1180px,calc(100%-48px))] lg:pt-20">
-          <span className="mb-6 inline-flex rounded-full bg-cream/90 px-[18px] py-2.5 font-extrabold text-green-deep mt-12 md:mt-0">
-            Juazeiro, Bahia
+          <span className="mb-6 mt-16 inline-flex rounded-full bg-cream/90 px-[18px] py-2.5 font-extrabold text-green-deep md:mt-8 lg:mt-0">
+            Agricultura familiar · Juazeiro, Bahia
           </span>
           <h1 className="text-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.28)]">
             Mangas premium do{" "}
@@ -35,8 +35,8 @@ export function Hero() {
           </h1>
           
           <p className="mt-7 max-w-[710px] text-[clamp(1.18rem,2vw,1.65rem)] leading-[1.45] text-white/90 drop-shadow-[0_5px_12px_rgba(0,0,0,0.24)]">
-            Produção rastreável, certificada e preparada para atender mercados
-            nacionais e internacionais com excelência.
+            Da nossa família para a sua mesa: mangas cultivadas com cuidado,
+            rastreabilidade e padrão para mercados nacionais e internacionais.
           </p>
           <div className="mt-11 flex w-full flex-wrap gap-[18px] max-sm:[&>a]:w-full">
             <Button href="#produtos" className="max-sm:min-h-[52px]">

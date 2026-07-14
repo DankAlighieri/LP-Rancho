@@ -8,14 +8,14 @@ export function Contact() {
           <span className="mb-[18px] inline-flex w-fit items-center rounded-full bg-mango-orange/10 px-3.5 py-2 text-[0.82rem] font-extrabold uppercase tracking-normal text-earth">
             Contato comercial
           </span>
-          <h2>Fale com nossa equipe comercial</h2>
-          <p className="mt-0">
-            Entre em contato para informações sobre disponibilidade, produção,
-            fornecimento e oportunidades comerciais.
+          <h2>Fale direto com o produtor</h2>
+          <p className="mt-5">
+            Converse com quem acompanha a produção de perto. Estamos disponíveis
+            para falar sobre safra, fornecimento, embalagens e oportunidades comerciais.
           </p>
           <div className="mt-[38px] grid gap-5">
             <a
-              className="inline-flex w-fit items-center gap-3 text-[1.08rem] font-extrabold text-green-deep"
+              className="inline-flex w-fit items-center gap-3 text-[1.08rem] font-extrabold text-green-deep transition duration-300 hover:-translate-y-1 hover:text-mango-orange"
               href="https://wa.me/5574999330190"
               target="_blank"
               rel="noreferrer"
@@ -24,14 +24,14 @@ export function Contact() {
               +55 (74) 9 9933-0190
             </a>
             <a
-              className="inline-flex w-fit items-center gap-3 text-[1.08rem] font-extrabold text-green-deep"
+              className="inline-flex w-fit items-center gap-3 text-[1.08rem] font-extrabold text-green-deep transition duration-300 hover:-translate-y-1 hover:text-mango-orange"
               href="mailto:georgeano.santos@uol.com.br"
             >
               <Mail size={24} aria-hidden="true" />
               georgeano.santos@uol.com.br
             </a>
             <a
-              className="inline-flex w-fit items-center gap-3 text-[1.08rem] font-extrabold text-green-deep"
+              className="inline-flex w-fit items-center gap-3 text-[1.08rem] font-extrabold text-green-deep transition duration-300 hover:-translate-y-1 hover:text-mango-orange"
               href="https://www.instagram.com/ranchosagradafamilia"
               target="_blank"
               rel="noreferrer"
@@ -115,7 +115,7 @@ export function Contact() {
             className="min-h-[58px] cursor-pointer rounded-[10px] bg-mango-orange text-base font-extrabold text-soft transition hover:-translate-y-0.5 hover:bg-mango-dark md:col-span-2"
             type="submit"
           >
-            Enviar solicitação
+            Enviar mensagem
           </button>
         </form>
       </div>

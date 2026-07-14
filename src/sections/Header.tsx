@@ -1,6 +1,5 @@
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import { Logo } from "../components/Logo";
+import { useEffect, useState } from "react";
 import { Button } from "../components/Button";
 import { navItems } from "../data/siteData";
 
@@ -8,18 +7,36 @@ import logo from "../assets/logoTransp.webp"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 80);
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 z-50 border-b border-sand/75 bg-cream/95 backdrop-blur w-full left-0">
-      <div className="mx-auto flex min-h-[72px] w-[min(1180px,calc(100%-32px))] items-center justify-between gap-6 md:w-[min(1180px,calc(100%-40px))] lg:min-h-[82px] lg:w-[min(1180px,calc(100%-48px))]">
-        <img
-          src={logo}
-          alt="Logo"
-          className="h-12 w-auto shrink-0 object-contain drop-shadow-sm transition-transform duration-200 hover:scale-[1.2] md:h-14 lg:h-16"
-         />
+    <header
+      className={`fixed left-0 top-0 z-50 w-full border-b backdrop-blur transition-[background-color,border-color,box-shadow] duration-300 ${
+        isScrolled
+          ? "border-white/10 bg-green-dark/95 shadow-[0_12px_30px_rgba(15,35,11,0.2)]"
+          : "border-sand/75 bg-cream/95"
+      }`}
+    >
+      <div className="mx-auto flex min-h-[78px] w-[min(1180px,calc(100%-32px))] items-center justify-between gap-6 md:w-[min(1180px,calc(100%-40px))] lg:min-h-[90px] lg:w-[min(1180px,calc(100%-48px))]">
+        <a href="#inicio" aria-label="Rancho Sagrada Família - início">
+          <img
+            src={logo}
+            alt="Rancho Sagrada Família"
+            className="h-[4rem] lg:h-[5rem] w-auto shrink-0 object-contain drop-shadow-sm transition-transform duration-300 hover:scale-[1.03]"
+          />
+        </a>
 
         <button
-          className="inline-grid place-items-center rounded-[10px] border border-green-deep/15 bg-white p-2.5 text-green-deep lg:hidden"
+          className="inline-grid place-items-center rounded-[8px] border border-green-deep/15 bg-white p-2.5 text-green-deep lg:hidden"
           type="button"
           aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={isOpen}
@@ -38,10 +55,12 @@ export function Header() {
           {navItems.map((item, index) => (
             <a
               key={item.href}
-              className={`relative py-2.5 after:absolute after:inset-x-0 after:bottom-0.5 after:h-0.5 after:origin-center after:rounded-full after:bg-mango-orange after:transition ${
+              className={`relative py-2.5 transition-colors after:absolute after:inset-x-0 after:bottom-0.5 after:h-0.5 after:origin-center after:rounded-full after:bg-mango-orange after:transition ${
                 index === 0
                   ? "text-mango-dark after:scale-x-100 after:opacity-100"
-                  : "after:scale-x-50 after:opacity-0 hover:after:scale-x-100 hover:after:opacity-100"
+                  : `${
+                      isScrolled ? "text-green-deep lg:text-white" : "text-green-deep"
+                    } after:scale-x-50 after:opacity-0 hover:text-mango-orange hover:after:scale-x-100 hover:after:opacity-100`
               }`}
               href={item.href}
               onClick={() => setIsOpen(false)}

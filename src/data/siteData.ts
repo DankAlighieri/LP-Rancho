@@ -1,9 +1,7 @@
 import {
   Award,
-  BadgeCheck,
   Boxes,
   CheckCheck,
-  Droplets,
   Globe2,
   Leaf,
   MapPin,
@@ -11,9 +9,14 @@ import {
   Sprout,
   Tractor,
   Truck,
-  UsersRound,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+
+import gapCertification from "../assets/gapCertification.webp";
+import graspCertification from "../assets/graspCertification.webp";
+import sustainabilityImage from "../assets/commitments/sustainability-irrigation.webp";
+import peopleImage from "../assets/commitments/people-harvest.webp";
+import qualityImage from "../assets/commitments/quality-mango.webp";
 
 export type NavItem = {
   label: string;
@@ -30,7 +33,8 @@ export type Product = {
 export type Commitment = {
   title: string;
   text: string;
-  icon: LucideIcon;
+  image: string;
+  imageAlt: string;
 };
 
 export type ProcessStep = {
@@ -46,6 +50,7 @@ export type CapacityMetric = {
 };
 
 export type Certification = {
+  filePath: string;
   name: string;
   text: string;
 };
@@ -59,21 +64,25 @@ export const navItems: NavItem[] = [
   { label: "Contato", href: "#contato" },
 ];
 
+
 export const commitments: Commitment[] = [
   {
     title: "Sustentabilidade",
-    text: "Uso consciente do solo e da água no manejo agrícola.",
-    icon: Droplets,
-  },
-  {
-    title: "Qualidade",
-    text: "Controle técnico do campo à expedição.",
-    icon: BadgeCheck,
+    text: "A água é usada com precisão, respeitando o solo e o ritmo de cada pomar.",
+    image: sustainabilityImage,
+    imageAlt: "Sistema de irrigação por gotejamento no pomar",
   },
   {
     title: "Pessoas",
-    text: "Valorização da equipe e responsabilidade em toda a cadeia produtiva.",
-    icon: UsersRound,
+    text: "A família e a equipe compartilham o cuidado diário que acompanha cada colheita.",
+    image: peopleImage,
+    imageAlt: "Trabalhador do Rancho colhendo mangas no pomar",
+  },
+  {
+    title: "Qualidade",
+    text: "Seleção atenta, fruta bem cuidada e padrão consistente do campo à expedição.",
+    image: qualityImage,
+    imageAlt: "Manga produzida no Rancho aberta para mostrar a polpa",
   },
 ];
 
@@ -110,17 +119,17 @@ export const products: Product[] = [
 export const processSteps: ProcessStep[] = [
   {
     title: "Cultivo",
-    text: "Preparo do solo e plantio técnico.",
+    text: "Preparo do solo, mudas certificadas e condução técnica.",
     icon: Tractor,
   },
   {
     title: "Manejo",
-    text: "Nutrição e irrigação controlada.",
+    text: "Nutrição, irrigação e monitoramento de pragas e doenças.",
     icon: Sprout,
   },
   {
     title: "Colheita",
-    text: "Ponto ideal de maturação.",
+    text: "Ponto ideal de maturação e coloração.",
     icon: Leaf,
   },
   {
@@ -164,10 +173,16 @@ export const capacityMetrics: CapacityMetric[] = [
 ];
 
 export const certifications: Certification[] = [
-  { name: "GLOBALG.A.P", text: "Boas práticas agrícolas" },
-  { name: "GRASP", text: "Responsabilidade social" },
-  { name: "MAPA", text: "Conformidade agrícola" },
-  { name: "Rastreabilidade", text: "Controle do campo à expedição" },
+  {
+    filePath: gapCertification,
+    name: "GLOBALG.A.P.",
+    text: "Boas práticas agrícolas",
+  },
+  {
+    filePath: graspCertification,
+    name: "GRASP",
+    text: "Responsabilidade social",
+  },
 ];
 
 export const marketRoutes = [

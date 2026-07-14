@@ -11,11 +11,11 @@ export function Footer() {
           <img
             src={logo}
             alt="Logo Rancho Sagrada Família"
-            className="h-12 w-auto shrink-0 object-contain drop-shadow-sm transition-transform duration-300 hover:scale-105 md:h-14 lg:h-16"
+            className="h-24 w-auto shrink-0 object-contain drop-shadow-sm transition-transform duration-300 hover:scale-105 md:h-26 lg:h-28"
           />
 
           <p className="mt-[22px] max-w-xs text-base text-white/70">
-            Produção responsável e certificada no Vale do São Francisco.
+            Uma história familiar cultivando mangas com responsabilidade no Vale do São Francisco.
           </p>
         </div>
 
