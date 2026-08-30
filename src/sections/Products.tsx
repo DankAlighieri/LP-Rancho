@@ -1,52 +1,74 @@
-import { CheckCircle2, PackageCheck, Ship, Truck } from "lucide-react";
+import { PackageCheck, Ship, Truck } from "lucide-react";
 import { SectionIntro } from "../components/SectionIntro";
-import mangoKeitt from "../assets/products/manga-keitt-real.webp";
-import mangoKent from "../assets/products/manga-kent-real.webp";
-import mangoPalmer from "../assets/products/manga-palmer-real.webp";
-import mangoTommyAtkins from "../assets/products/manga-tommy-atkins-real.webp";
+import mangoKeitt from "../assets/external/keitt.webp";
+import mangoKent from "../assets/external/kent-network.webp";
+import mangoPalmer from "../assets/external/palmer-network.webp";
+import mangoTommyAtkins from "../assets/external/tommy-atkins-network.webp";
 import sagradaFrutaLogo from "../assets/sagrada-fruta-logo.webp";
+import domesticBox18kg from "../assets/official/packaging/domestic-box-18kg.webp";
+import exportBox4kg from "../assets/official/packaging/export-box-4kg.webp";
 
 const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
 
 const mangoVarieties = [
   {
     name: "Palmer",
-    tag: "Mais de 70% de polpa",
+    tag: "Exportação",
     image: mangoPalmer,
+    imagePosition: "center",
     imageAlt: "Mangas produzidas no Rancho Sagrada Família selecionadas em caixa",
-    details:
-      "Coloração vermelho-arroxeada, polpa firme e semente pequena. Uma variedade valorizada pelo bom rendimento de polpa e pela durabilidade no transporte.",
-    properties: ["Semente pequena", "Mais de 70% de polpa", "Pouca fibra"],
+    specifications: [
+      { label: "Perfil de sabor", value: "Aroma agradável e doçura delicada, em um conjunto equilibrado." },
+      { label: "Polpa", value: "Consistente, macia ao amadurecer e com presença mínima de fibras." },
+      { label: "Aparência", value: "A casca combina nuances púrpuras, vermelhas e amarelas; o interior é alaranjado." },
+      { label: "Formato", value: "Silhueta alongada e semente proporcionalmente pequena." },
+    ],
+    ripening: "Próxima do ponto, intensifica a tonalidade avermelhada e cede suavemente ao toque.",
     activeMonths: [2, 3, 4, 5, 6, 7, 8, 9, 10],
   },
   {
     name: "Tommy Atkins",
-    tag: "Resistência no transporte",
+    tag: "Alta resistência",
     image: mangoTommyAtkins,
+    imagePosition: "center",
     imageAlt: "Mangas cultivadas no pomar do Rancho Sagrada Família",
-    details:
-      "Casca vibrante, boa firmeza e desempenho consistente no manuseio. É uma manga preparada para percorrer longas cadeias logísticas.",
-    properties: ["Casca resistente", "Boa apresentação", "Longa vida pós-colheita"],
+    specifications: [
+      { label: "Perfil de sabor", value: "Doçura agradável e sabor suave." },
+      { label: "Polpa", value: "Estrutura firme, característica que favorece o manuseio e o transporte." },
+      { label: "Aparência", value: "Mistura de verde e amarelo com uma cobertura avermelhada marcante." },
+      { label: "Formato", value: "Fruto robusto, ovalado e levemente alongado." },
+    ],
+    ripening: "A cor nem sempre revela o ponto; confirme pela leve maciez junto ao pedúnculo.",
     activeMonths: [2, 3, 4, 5, 6, 7, 8, 9, 10],
   },
   {
     name: "Keitt",
-    tag: "Sem fibras e suculenta",
+    tag: "Safra estratégica",
     image: mangoKeitt,
-    imageAlt: "Mangas verdes recém-colhidas no Rancho Sagrada Família",
-    details:
-      "Fruto grande, predominantemente verde, com polpa muito suculenta, pouca fibra e sabor suave e equilibrado.",
-    properties: ["Fruto grande", "Polpa suculenta", "Pouca fibra"],
+    imagePosition: "center",
+    imageAlt: "Manga Keitt inteira e cortada, com polpa amarela exposta",
+    specifications: [
+      { label: "Perfil de sabor", value: "Doçura limpa e equilibrada, de perfil suave." },
+      { label: "Polpa", value: "Abundante, firme e bastante suculenta, com baixa presença de fibras." },
+      { label: "Aparência", value: "Predomínio de verde mesmo madura, podendo apresentar discreto tom rosado." },
+      { label: "Formato", value: "Grande, oval e com excelente rendimento de polpa." },
+    ],
+    ripening: "Como permanece verde, o melhor sinal é ceder suavemente à pressão sem perder firmeza.",
     activeMonths: [2, 3, 6, 7, 8, 9, 10],
   },
   {
     name: "Kent",
-    tag: "Polpa doce e sem fibras",
+    tag: "Perfil premium",
     image: mangoKent,
+    imagePosition: "center",
     imageAlt: "Mangas maduras abertas para mostrar a qualidade da polpa",
-    details:
-      "Formato ovalado, polpa macia, doce e praticamente sem fibras. Seu sabor e rendimento atendem mercados de perfil premium.",
-    properties: ["Sem fibras", "Polpa macia e doce", "Perfil premium"],
+    specifications: [
+      { label: "Perfil de sabor", value: "Doçura intensa, aroma agradável e sabor encorpado." },
+      { label: "Polpa", value: "Macia e suculenta, praticamente livre de fibras." },
+      { label: "Aparência", value: "Base verde com áreas avermelhadas e nuances douradas à medida que amadurece." },
+      { label: "Formato", value: "Grande, ovalado e com ótimo aproveitamento de polpa." },
+    ],
+    ripening: "O surgimento de tons dourados e a leve maciez indicam que está pronta para o consumo.",
     activeMonths: [8, 9, 10],
   },
 ];
@@ -58,6 +80,8 @@ const packagingOptions = [
     transport: "Transporte marítimo",
     details: ["Calibres 6 ao 14", "252 caixas por pallet", "5.712 caixas por contêiner"],
     icon: Ship,
+    image: exportBox4kg,
+    imageAlt: "Caixa de 4 kg para exportação com mangas selecionadas e proteção individual",
   },
   {
     weight: "18 kg",
@@ -65,6 +89,8 @@ const packagingOptions = [
     transport: "Transporte rodoviário",
     details: ["Calibres 8 ao 16", "60 caixas por pallet", "14 a 22 pallets por caminhão"],
     icon: Truck,
+    image: domesticBox18kg,
+    imageAlt: "Caixa de 18 kg para mercado interno com mangas selecionadas",
   },
 ];
 
@@ -110,8 +136,34 @@ export function Products() {
       <div className="mx-auto w-[min(1180px,calc(100%-32px))] md:w-[min(1180px,calc(100%-40px))] lg:w-[min(1180px,calc(100%-48px))]">
         <SectionIntro
           title="Variedades Produzidas"
-          text="Cada variedade é acompanhada de perto pela nossa família, com manejo, seleção e janela de produção adequados ao seu perfil de mercado."
+          text="Do pomar à expedição, cada cultivar recebe um manejo próprio para expressar sabor, conservação e desempenho comercial."
         />
+
+        <div className="mb-14 grid overflow-hidden rounded-[8px] bg-green-dark md:grid-cols-[280px_minmax(0,1fr)] lg:mb-16 lg:grid-cols-[330px_minmax(0,1fr)]">
+          <div className="flex min-h-[190px] items-center justify-center bg-white px-8 py-7 md:min-h-[250px]">
+            <img
+              src={sagradaFrutaLogo}
+              alt="Sagrada Fruta"
+              className="max-h-[150px] w-full max-w-[250px] object-contain"
+              loading="lazy"
+            />
+          </div>
+          <div className="flex flex-col justify-center px-7 py-9 md:px-10 lg:px-12">
+            <span className="text-xs font-extrabold uppercase tracking-[0.18em] text-mango-orange">
+              Sagrada Fruta · Linha premium
+            </span>
+            <h3 className="mt-4 max-w-[650px] text-2xl text-white md:text-3xl">
+              Excelência brasileira para mercados de alto padrão
+            </h3>
+            <p className="mt-5 max-w-[720px] text-base leading-[1.65] text-white/80 md:text-[1.05rem]">
+              A Sagrada Fruta é a marca de seleção premium do Rancho Sagrada
+              Família, concebida para o segmento premium da exportação. Reúne
+              mangas selecionadas por BRIX, CALIBRE, COLORAÇÃO, FIRMEZA e
+              RASTREABILIDADE, com apresentação preparada para importadores e
+              distribuidores exigentes.
+            </p>
+          </div>
+        </div>
 
         <div className="grid gap-7 lg:gap-8">
           {mangoVarieties.map((mango, index) => (
@@ -120,11 +172,14 @@ export function Products() {
               className="grid overflow-hidden rounded-[8px] border border-sand/80 bg-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-lift lg:grid-cols-[0.88fr_1.12fr]"
             >
               <div className={`relative min-h-[320px] overflow-hidden bg-sand lg:min-h-[500px] ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                <img src={mango.image} alt={mango.imageAlt} className="h-full w-full object-cover" loading="lazy" />
+                <img
+                  src={mango.image}
+                  alt={mango.imageAlt}
+                  className="h-full w-full object-cover"
+                  style={{ objectPosition: mango.imagePosition }}
+                  loading="lazy"
+                />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,35,11,0.02),rgba(15,35,11,0.3))]" aria-hidden="true" />
-                <span className="absolute left-5 top-5 max-w-[calc(100%-40px)] rounded-full bg-green-deep px-4 py-2 text-sm font-extrabold text-white shadow-lg">
-                  {mango.tag}
-                </span>
                 <div className="absolute bottom-5 right-5 flex h-16 w-32 items-center justify-center rounded-[8px] bg-cream/90 px-3 shadow-lift backdrop-blur-sm md:h-[72px] md:w-40">
                   <img src={sagradaFrutaLogo} alt="Sagrada Fruta" className="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
@@ -132,19 +187,29 @@ export function Products() {
 
               <div className="flex flex-col justify-center px-6 py-8 md:px-10 lg:px-12 lg:py-10">
                 <span className="mb-4 inline-flex text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-leaf-fresh">
-                  Manga cultivada no Rancho
+                  {mango.tag}
                 </span>
                 <h3 className="text-[clamp(2rem,3vw,3.15rem)] text-green-dark">{mango.name}</h3>
-                <p className="mt-5 max-w-[620px]">{mango.details}</p>
 
-                <ul className="mt-7 grid min-w-0 gap-3 sm:grid-cols-3">
-                  {mango.properties.map((property) => (
-                    <li key={property} className="flex min-h-[62px] min-w-0 items-center gap-2 overflow-hidden rounded-[8px] border border-sand/80 border-l-4 border-l-mango-orange bg-cream px-3 py-3 text-[0.8rem] font-extrabold leading-tight text-green-deep lg:px-3 xl:px-4 xl:text-sm">
-                      <CheckCircle2 className="h-4 w-4 shrink-0 text-leaf-fresh" aria-hidden="true" />
-                      <span className="min-w-0 [overflow-wrap:anywhere]">{property}</span>
-                    </li>
+                <dl className="mt-7 grid min-w-0 gap-x-7 gap-y-5 sm:grid-cols-2">
+                  {mango.specifications.map((specification) => (
+                    <div key={specification.label} className="min-w-0 border-l-2 border-mango-orange pl-4">
+                      <dt className="text-xs font-extrabold uppercase text-green-deep">
+                        {specification.label}
+                      </dt>
+                      <dd className="mt-1.5 text-[0.95rem] leading-[1.55] text-muted">
+                        {specification.value}
+                      </dd>
+                    </div>
                   ))}
-                </ul>
+                </dl>
+
+                <div className="mt-7 border border-sand/80 bg-cream px-5 py-4">
+                  <strong className="text-sm font-extrabold text-green-deep">
+                    Como reconhecer o ponto de maturação
+                  </strong>
+                  <p className="mt-2 text-[0.92rem] leading-[1.55]">{mango.ripening}</p>
+                </div>
 
                 <ProductionCalendar activeMonths={mango.activeMonths} variety={mango.name} />
               </div>
@@ -164,7 +229,20 @@ export function Products() {
               const Icon = option.icon;
 
               return (
-                <article key={option.weight} className="rounded-[8px] border border-sand/80 bg-white p-7 shadow-lg md:p-9 transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+                <article
+                  key={option.weight}
+                  className="rounded-[8px] border border-sand/80 bg-white p-7 shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-lift md:p-9"
+                >
+                  <div className="mb-7 flex h-[220px] items-center justify-center overflow-hidden rounded-[8px] border border-sand/70 bg-cream p-4 md:h-[250px] md:p-5">
+                    <img
+                      src={option.image}
+                      alt={option.imageAlt}
+                      className="h-full w-full object-contain object-center"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+
                   <div className="flex items-start justify-between gap-5">
                     <div>
                       <span className="text-sm font-extrabold uppercase text-mango-dark">Caixa</span>

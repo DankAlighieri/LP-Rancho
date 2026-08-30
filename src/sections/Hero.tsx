@@ -1,8 +1,10 @@
-import { BadgeCheck, Globe2, ShieldCheck } from "lucide-react";
+import { BadgeCheck, ShieldCheck, Globe2 } from "lucide-react";
 import { Button } from "../components/Button";
 import { motion } from "framer-motion";
 
-import header from "../assets/hero.webp"
+import gapCertification from "../assets/gapCertification.webp";
+import graspCertification from "../assets/graspCertification.webp";
+import header from "../assets/hero.webp";
 
 export function Hero() {
   return (

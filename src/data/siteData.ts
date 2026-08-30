@@ -2,21 +2,39 @@ import {
   Award,
   Boxes,
   CheckCheck,
+  createLucideIcon,
   Globe2,
-  Leaf,
   MapPin,
-  Plane,
+  Ship,
   Sprout,
   Tractor,
   Truck,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+const Mango: LucideIcon = createLucideIcon("Mango", [
+  [
+    "path",
+    {
+      d: "M14.7 5.2c-1.5-.6-3.2-.2-4.8 1-2.4 1.8-4.4 5.3-4.7 8.3-.3 3.1 1.2 5.5 3.9 6.1 3.4.8 7.5-1.3 9.1-4.7 1.3-2.8.9-6.5-1-8.8-.7-.8-1.5-1.5-2.5-1.9Z",
+      key: "mango-fruit",
+    },
+  ],
+  ["path", { d: "M13.8 5.1c.4-1.5 1.2-2.5 2.6-3.1", key: "mango-stem" }],
+  [
+    "path",
+    {
+      d: "M16 3.1c1.4-1.1 3.1-1.1 4.3-.2-1 1.4-2.6 2-4.3.2Z",
+      key: "mango-leaf",
+    },
+  ],
+]);
+
 import gapCertification from "../assets/gapCertification.webp";
 import graspCertification from "../assets/graspCertification.webp";
-import sustainabilityImage from "../assets/commitments/sustainability-irrigation.webp";
-import peopleImage from "../assets/commitments/people-harvest.webp";
-import qualityImage from "../assets/commitments/quality-mango.webp";
+import sustainabilityImage from "../assets/external/sustainability-network.webp";
+import peopleImage from "../assets/external/people-network.webp";
+import qualityImage from "../assets/external/quality-mango-standard.webp";
 
 export type NavItem = {
   label: string;
@@ -70,19 +88,19 @@ export const commitments: Commitment[] = [
     title: "Sustentabilidade",
     text: "A água é usada com precisão, respeitando o solo e o ritmo de cada pomar.",
     image: sustainabilityImage,
-    imageAlt: "Sistema de irrigação por gotejamento no pomar",
+    imageAlt: "Sistema de irrigação por gotejamento levando água diretamente ao solo",
   },
   {
     title: "Pessoas",
     text: "A família e a equipe compartilham o cuidado diário que acompanha cada colheita.",
     image: peopleImage,
-    imageAlt: "Trabalhador do Rancho colhendo mangas no pomar",
+    imageAlt: "Trabalhadores realizando a colheita de mangas no pomar",
   },
   {
     title: "Qualidade",
     text: "Seleção atenta, fruta bem cuidada e padrão consistente do campo à expedição.",
     image: qualityImage,
-    imageAlt: "Manga produzida no Rancho aberta para mostrar a polpa",
+    imageAlt: "Manga madura oval, saudável e centralizada",
   },
 ];
 
@@ -130,7 +148,7 @@ export const processSteps: ProcessStep[] = [
   {
     title: "Colheita",
     text: "Ponto ideal de maturação e coloração.",
-    icon: Leaf,
+    icon: Mango,
   },
   {
     title: "Seleção",
@@ -145,7 +163,7 @@ export const processSteps: ProcessStep[] = [
   {
     title: "Expedição",
     text: "Envio para os principais portos.",
-    icon: Plane,
+    icon: Ship,
   },
 ];
 

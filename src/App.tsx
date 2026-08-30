@@ -11,6 +11,7 @@ import { Markets } from "./sections/Markets";
 import { Location } from "./sections/Location";
 import { Contact } from "./sections/Contact";
 import { Footer } from "./sections/Footer";
+import { BackToTop } from "./components/BackToTop";
 
 export default function App() {
   return (
@@ -30,6 +31,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }

@@ -31,7 +31,7 @@ export function Header() {
           <img
             src={logo}
             alt="Rancho Sagrada Família"
-            className="h-[4rem] lg:h-[5rem] w-auto shrink-0 object-contain drop-shadow-sm transition-transform duration-300 hover:scale-[1.03]"
+            className="h-[4rem] lg:h-[4.5rem] w-auto shrink-0 object-contain drop-shadow-sm transition-transform duration-300 hover:scale-[1.03]"
           />
         </a>
 

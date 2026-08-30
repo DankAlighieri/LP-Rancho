@@ -1,4 +1,4 @@
-import { Instagram, Mail, Phone } from "lucide-react";
+import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
 export function Contact() {
   return (
@@ -25,10 +25,10 @@ export function Contact() {
             </a>
             <a
               className="inline-flex w-fit items-center gap-3 text-[1.08rem] font-extrabold text-green-deep transition duration-300 hover:-translate-y-1 hover:text-mango-orange"
-              href="mailto:georgeano.santos@uol.com.br"
+              href="mailto:georgeano@sagradafruta.com.br"
             >
               <Mail size={24} aria-hidden="true" />
-              georgeano.santos@uol.com.br
+              georgeano@sagradafruta.com.br
             </a>
             <a
               className="inline-flex w-fit items-center gap-3 text-[1.08rem] font-extrabold text-green-deep transition duration-300 hover:-translate-y-1 hover:text-mango-orange"
@@ -38,6 +38,15 @@ export function Contact() {
             >
               <Instagram size={24} aria-hidden="true" />
               @ranchosagradafamilia
+            </a>
+            <a
+              className="inline-flex w-fit items-center gap-3 text-[1.08rem] font-extrabold text-green-deep transition duration-300 hover:-translate-y-1 hover:text-mango-orange"
+              href="https://www.linkedin.com/in/sagrada-fruta-exporta%C3%A7%C3%A3o-de-mangas-brasileiras-372b3b411/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Linkedin size={24} aria-hidden="true" />
+              Sagrada Fruta
             </a>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { Instagram, Mail, Phone } from "lucide-react";
+import { Instagram, Linkedin, Mail, Phone } from "lucide-react";
 import { navItems } from "../data/siteData";
 
 import logo from "../assets/logoTransp.webp";
@@ -59,7 +59,7 @@ export function Footer() {
             </a>
             <a
               className="mt-3 flex w-fit items-center gap-2 text-white/70 hover:text-mango-orange"
-              href="mailto:georgeano.santos@uol.com.br"
+              href="mailto:georgeano@sagradafruta.com.br"
             >
               <Mail size={16} aria-hidden="true" />
               E-mail
@@ -72,6 +72,15 @@ export function Footer() {
             >
               <Instagram size={16} aria-hidden="true" />
               Instagram
+            </a>
+            <a
+              className="mt-3 flex w-fit items-center gap-2 text-white/70 hover:text-mango-orange"
+              href="https://www.linkedin.com/in/sagrada-fruta-exporta%C3%A7%C3%A3o-de-mangas-brasileiras-372b3b411/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Linkedin size={16} aria-hidden="true" />
+              Linkedin
             </a>
           </div>
         </div>
