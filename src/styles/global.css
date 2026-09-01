@@ -44,3 +44,55 @@
     @apply outline-mango-orange outline-offset-4;
   }
 }
+
+/*
+ * Notebooks costumam ter largura suficiente para o menu desktop, mas pouca
+ * altura útil depois das barras do navegador. Mantemos desktop e mobile como
+ * estão e compactamos somente essa combinação para o Hero caber em 100svh.
+ */
+@media (min-width: 1024px) and (max-height: 760px) {
+  .hero .hero__motion {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .hero .hero__content {
+    padding-top: 0;
+  }
+
+  .hero .hero__eyebrow {
+    margin-top: 0;
+    margin-bottom: 0.875rem;
+    padding-block: 0.45rem;
+  }
+
+  .hero .hero__title {
+    max-width: 600px;
+    font-size: clamp(2.9rem, 7.2svh, 3.45rem);
+    line-height: 1.02;
+  }
+
+  .hero .hero__description {
+    margin-top: 0.875rem;
+    max-width: 650px;
+    font-size: clamp(1rem, 2.7svh, 1.2rem);
+    line-height: 1.35;
+  }
+
+  .hero .hero__actions {
+    margin-top: 1.25rem;
+  }
+
+  .hero .hero__actions > a {
+    min-height: 48px;
+    padding-inline: 1.5rem;
+  }
+
+  .hero .hero__trust {
+    margin-top: 0.875rem;
+  }
+
+  .hero .hero__trust > span {
+    padding-block: 0.375rem;
+  }
+}

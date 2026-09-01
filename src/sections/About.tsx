@@ -1,7 +1,10 @@
 import { BadgeCheck, Leaf } from "lucide-react";
-import manOnField from "../assets/manOnField.webp";
+import manOnField from "../assets/official/story/producer-with-mangoes.webp";
+import { useLanguage } from "../i18n";
 
 export function About() {
+  const { copy } = useLanguage();
+
   return (
     <section
       id="quem-somos"
@@ -13,7 +16,7 @@ export function About() {
 
           <img
             src={manOnField}
-            alt="Produtor analisando uma manga no pomar"
+            alt={copy.about.imageAlt}
             className="relative h-[420px] w-full object-cover shadow-lift [clip-path:polygon(8%_0,100%_0,92%_100%,0_100%)] md:h-[560px]"
             loading="lazy"
           />
@@ -21,23 +24,19 @@ export function About() {
 
         <div className="max-w-[610px]">
           <span className="mb-6 inline-flex text-[0.72rem] font-extrabold uppercase tracking-[0.22em] text-leaf-fresh">
-            Nossa história
+            {copy.about.eyebrow}
           </span>
 
           <h2 className="max-w-[560px] text-green-dark drop-shadow-sm">
-            Tradição familiar com visão global
+            {copy.about.title}
           </h2>
 
           <p className="mt-7">
-            No Rancho Sagrada Família, o conhecimento sobre a terra passa de
-            geração em geração. A família acompanha de perto o pomar, a equipe
-            e cada decisão que define a qualidade da colheita.
+            {copy.about.paragraph1}
           </p>
 
           <p className="mt-5">
-            Essa presença diária se une à tecnologia, ao manejo sustentável e à
-            rastreabilidade para levar mangas do Vale do São Francisco a mercados
-            exigentes, sem perder a proximidade de quem vive a produção.
+            {copy.about.paragraph2}
           </p>
 
           <div className="mt-10 flex flex-wrap gap-5">
@@ -46,7 +45,7 @@ export function About() {
                 100%
               </strong>
               <span className="mt-3 block text-sm font-semibold text-muted">
-                Rastreável
+                {copy.about.traceable}
               </span>
             </div>
           </div>
@@ -54,12 +53,12 @@ export function About() {
           <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
             <span className="inline-flex min-w-fit items-center gap-3 font-extrabold text-green-deep">
               <BadgeCheck size={22} aria-hidden="true" />
-              Padrão Exportação
+              {copy.about.exportStandard}
             </span>
 
             <span className="inline-flex min-w-fit items-center gap-3 font-extrabold text-green-deep">
               <Leaf size={22} aria-hidden="true" />
-              Cultivo Sustentável
+              {copy.about.sustainable}
             </span>
           </div>
         </div>

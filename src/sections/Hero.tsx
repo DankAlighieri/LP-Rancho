@@ -1,15 +1,18 @@
 import { BadgeCheck, ShieldCheck, Globe2 } from "lucide-react";
 import { Button } from "../components/Button";
 import { motion } from "framer-motion";
+import { useLanguage } from "../i18n";
 
 import gapCertification from "../assets/gapCertification.webp";
 import graspCertification from "../assets/graspCertification.webp";
 import header from "../assets/hero.webp";
 
 export function Hero() {
+  const { copy } = useLanguage();
+
   return (
     <section
-      className="relative grid min-h-[100svh] place-items-center overflow-hidden bg-right bg-no-repeat bg-cover"
+      className="hero relative grid min-h-[100svh] place-items-center overflow-hidden bg-right bg-no-repeat bg-cover"
       style={{backgroundImage: `url(${header})`}}
       id="inicio"
     >
@@ -23,32 +26,31 @@ export function Hero() {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="lg:pr-[60svh]"
+        className="hero__motion lg:pr-[60svh]"
       >
-        <div className="relative z-10 mx-auto w-[min(1180px,calc(100%-32px))] pt-10 text-white md:w-[min(1180px,calc(100%-40px))] lg:w-[min(1180px,calc(100%-48px))] lg:pt-20">
-          <span className="mb-6 mt-16 inline-flex rounded-full bg-cream/90 px-[18px] py-2.5 font-extrabold text-green-deep md:mt-8 lg:mt-0">
-            Agricultura familiar · Juazeiro, Bahia
+        <div className="hero__content relative z-10 mx-auto w-[min(1180px,calc(100%-32px))] pt-10 text-white md:w-[min(1180px,calc(100%-40px))] lg:w-[min(1180px,calc(100%-48px))] lg:pt-20">
+          <span className="hero__eyebrow mb-6 mt-16 inline-flex rounded-full bg-cream/90 px-[18px] py-2.5 font-extrabold text-green-deep md:mt-8 lg:mt-0">
+            {copy.hero.eyebrow}
           </span>
-          <h1 className="text-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.28)]">
-            Mangas premium do{" "}
+          <h1 className="hero__title text-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.28)]">
+            {copy.hero.titleLead}{" "}
             <span className="text-sand">
-              Vale do São Francisco
+              {copy.hero.titleAccent}
             </span>
           </h1>
           
-          <p className="mt-7 max-w-[710px] text-[clamp(1.18rem,2vw,1.65rem)] leading-[1.45] text-white/90 drop-shadow-[0_5px_12px_rgba(0,0,0,0.24)]">
-            Da nossa família para a sua mesa: mangas cultivadas com cuidado,
-            rastreabilidade e padrão para mercados nacionais e internacionais.
+          <p className="hero__description mt-7 max-w-[710px] text-[clamp(1.18rem,2vw,1.65rem)] leading-[1.45] text-white/90 drop-shadow-[0_5px_12px_rgba(0,0,0,0.24)]">
+            {copy.hero.description}
           </p>
-          <div className="mt-11 flex w-full flex-wrap gap-[18px] max-sm:[&>a]:w-full">
+          <div className="hero__actions mt-11 flex w-full flex-wrap gap-[18px] max-sm:[&>a]:w-full">
             <Button href="#produtos" className="max-sm:min-h-[52px]">
-              Conheça nossos produtos
+              {copy.hero.productsCta}
             </Button>
             <Button href="#contato" variant="light" className="max-sm:min-h-[52px]">
-              Fale conosco
+              {copy.hero.contactCta}
             </Button>
           </div>
-          <div className="mt-7 flex flex-wrap gap-3" aria-label="Selos e atuação">
+          <div className="hero__trust mt-7 flex flex-wrap gap-3" aria-label={copy.hero.trustLabel}>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-green-dark/35 px-3.5 py-2 text-sm font-extrabold text-white">
               <BadgeCheck size={18} aria-hidden="true" />
               GLOBALG.A.P
@@ -59,7 +61,7 @@ export function Hero() {
             </span>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-green-dark/35 px-3.5 py-2 text-sm font-extrabold text-white">
               <Globe2 size={18} aria-hidden="true" />
-              Exportação
+              {copy.hero.export}
             </span>
           </div>
         </div>

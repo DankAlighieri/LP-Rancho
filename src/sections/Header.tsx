@@ -1,11 +1,13 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "../components/Button";
-import { navItems } from "../data/siteData";
+import { LanguageSelector } from "../components/LanguageSelector";
+import { useLanguage } from "../i18n";
 
 import logo from "../assets/logoTransp.webp"
 
 export function Header() {
+  const { copy } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -27,7 +29,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex min-h-[78px] w-[min(1180px,calc(100%-32px))] items-center justify-between gap-6 md:w-[min(1180px,calc(100%-40px))] lg:min-h-[90px] lg:w-[min(1180px,calc(100%-48px))]">
-        <a href="#inicio" aria-label="Rancho Sagrada Família - início">
+        <a href="#inicio" aria-label={copy.header.homeLabel}>
           <img
             src={logo}
             alt="Rancho Sagrada Família"
@@ -38,7 +40,7 @@ export function Header() {
         <button
           className="inline-grid place-items-center rounded-[8px] border border-green-deep/15 bg-white p-2.5 text-green-deep lg:hidden"
           type="button"
-          aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+          aria-label={isOpen ? copy.header.closeMenu : copy.header.openMenu}
           aria-expanded={isOpen}
           onClick={() => setIsOpen((current) => !current)}
         >
@@ -46,13 +48,13 @@ export function Header() {
         </button>
 
         <nav
-          className={`absolute left-5 right-5 top-[calc(100%+1px)] grid gap-2 rounded-[14px] border border-sand/90 bg-white p-[18px] text-[0.94rem] font-bold text-green-deep shadow-soft transition lg:static lg:flex lg:items-center lg:gap-7 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none ${
+          className={`absolute left-5 right-5 top-[calc(100%+1px)] grid gap-2 rounded-[14px] border border-sand/90 bg-white p-[18px] text-[0.94rem] font-bold text-green-deep shadow-soft transition lg:static lg:flex lg:items-center lg:gap-4 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none xl:gap-6 ${
             isOpen
               ? "visible translate-y-0 opacity-100"
               : "invisible -translate-y-2 opacity-0 lg:visible lg:translate-y-0 lg:opacity-100"
           }`}
         >
-          {navItems.map((item, index) => (
+          {copy.nav.map((item, index) => (
             <a
               key={item.href}
               className={`relative py-2.5 transition-colors after:absolute after:inset-x-0 after:bottom-0.5 after:h-0.5 after:origin-center after:rounded-full after:bg-mango-orange after:transition ${
@@ -69,8 +71,9 @@ export function Header() {
             </a>
           ))}
           <Button href="#contato" className="mt-2 min-h-11 w-full px-5 lg:mt-0 lg:w-auto">
-            Fale conosco
+            {copy.header.contact}
           </Button>
+          <LanguageSelector />
         </nav>
       </div>
     </header>

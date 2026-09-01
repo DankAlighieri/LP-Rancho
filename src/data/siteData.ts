@@ -32,9 +32,9 @@ const Mango: LucideIcon = createLucideIcon("Mango", [
 
 import gapCertification from "../assets/gapCertification.webp";
 import graspCertification from "../assets/graspCertification.webp";
-import sustainabilityImage from "../assets/external/sustainability-network.webp";
-import peopleImage from "../assets/external/people-network.webp";
-import qualityImage from "../assets/external/quality-mango-standard.webp";
+import sustainabilityImage from "../assets/commitments/sustainability-irrigation.webp";
+import peopleImage from "../assets/commitments/people-harvest.webp";
+import qualityImage from "../assets/commitments/quality-mango.webp";
 
 export type NavItem = {
   label: string;

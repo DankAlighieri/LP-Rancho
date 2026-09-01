@@ -1,6 +1,8 @@
-import { capacityMetrics } from "../data/siteData";
+import { useLanguage } from "../i18n";
 
 export function Capacity() {
+  const { copy } = useLanguage();
+
   return (
     <section className="relative overflow-hidden bg-green-dark py-[68px] text-white md:py-[82px] lg:py-[104px]">
       <div
@@ -10,12 +12,12 @@ export function Capacity() {
       <div className="relative z-10 mx-auto w-[min(1180px,calc(100%-32px))] md:w-[min(1180px,calc(100%-40px))] lg:w-[min(1180px,calc(100%-48px))]">
         <div className="mx-auto mb-11 max-w-[820px] text-center md:mb-16">
           <span className="mb-[18px] inline-flex w-fit items-center rounded-full bg-mango-orange/20 px-3.5 py-2 text-[0.82rem] font-extrabold uppercase tracking-normal text-[#ffd5ad]">
-            Safra e estrutura
+            {copy.capacity.eyebrow}
           </span>
-          <h2 className="text-white">Produção e Capacidade</h2>
+          <h2 className="text-white">{copy.capacity.title}</h2>
         </div>
         <div className="grid items-stretch gap-7 md:grid-cols-2 lg:grid-cols-4">
-          {capacityMetrics.map((metric) => (
+          {copy.capacity.metrics.map((metric) => (
             <article
               className="flex min-h-[220px] min-w-0 flex-col items-center justify-center overflow-hidden rounded-[18px] border border-white/10 bg-white/5 px-7 py-9 text-center"
               key={metric.value}
