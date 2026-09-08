@@ -1,32 +1,108 @@
 import { BadgeCheck, ShieldCheck, Globe2 } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "../components/Button";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "../i18n";
 
-import gapCertification from "../assets/gapCertification.webp";
-import graspCertification from "../assets/graspCertification.webp";
 import header from "../assets/hero.webp";
+import aerial1 from "../assets/official/aerial/aerial1.webp";
+import aerial2 from "../assets/official/aerial/aerial2.webp";
+
+const heroPhotos = [
+  { src: header, position: "right center" },
+  { src: aerial1, position: "center center" },
+  { src: aerial2, position: "40% center" },
+];
+
+const PHOTO_INTERVAL_MS = 6000;
 
 export function Hero() {
   const { copy } = useLanguage();
+  const reducedMotion = useReducedMotion();
+  const [activePhoto, setActivePhoto] = useState(0);
+  const [loadedPhotos, setLoadedPhotos] = useState<number[]>([]);
+  const [isPageVisible, setIsPageVisible] = useState(
+    () => document.visibilityState === "visible",
+  );
+  const currentPhoto = heroPhotos[activePhoto];
+
+  useEffect(() => {
+    const images = heroPhotos.map((photo, index) => {
+      const image = new Image();
+      image.fetchPriority = index === 0 ? "high" : "low";
+      image.onload = () => {
+        setLoadedPhotos((current) => current.includes(index) ? current : [...current, index]);
+      };
+      image.src = photo.src;
+      return image;
+    });
+
+    return () => images.forEach((image) => { image.onload = null; });
+  }, []);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      setIsPageVisible(document.visibilityState === "visible");
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion || !isPageVisible || loadedPhotos.length < 2) {
+      return;
+    }
+
+    // Only rotate to photos that have loaded; keep their original sequence.
+    const availablePhotos = heroPhotos
+      .map((_, index) => index)
+      .filter((index) => loadedPhotos.includes(index));
+    const timeout = window.setTimeout(() => {
+      const nextIndex = (availablePhotos.indexOf(activePhoto) + 1) % availablePhotos.length;
+      setActivePhoto(availablePhotos[nextIndex]);
+    }, PHOTO_INTERVAL_MS);
+
+    return () => window.clearTimeout(timeout);
+  }, [activePhoto, reducedMotion, isPageVisible, loadedPhotos]);
 
   return (
     <section
-      className="hero relative grid min-h-[100svh] place-items-center overflow-hidden bg-right bg-no-repeat bg-cover"
+      className="hero relative isolate grid min-h-[100svh] place-items-center overflow-hidden bg-green-dark bg-right bg-no-repeat bg-cover"
       style={{backgroundImage: `url(${header})`}}
       id="inicio"
     >
+      <div id="hero-backgrounds" className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <AnimatePresence initial={false}>
+          <motion.img
+            key={currentPhoto.src}
+            src={currentPhoto.src}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: currentPhoto.position }}
+            initial={{ x: "100%" }}
+            animate={{ x: "0%" }}
+            exit={{ x: "-100%" }}
+            transition={{ duration: reducedMotion ? 0 : 1, ease: "easeInOut" }}
+            loading="eager"
+            fetchPriority={activePhoto === 0 ? "high" : "low"}
+            decoding="async"
+            draggable={false}
+          />
+        </AnimatePresence>
+      </div>
+
       {/* Gradiente linear para suavizar a imagem */}
       <div
-        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,35,11,0.82)_0%,rgba(15,35,11,0.52)_38%,rgba(248,243,230,0.08)_100%),linear-gradient(0deg,rgba(248,243,230,0.32)_0%,transparent_38%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(15,35,11,0.82)_0%,rgba(15,35,11,0.52)_38%,rgba(248,243,230,0.08)_100%),linear-gradient(0deg,rgba(248,243,230,0.32)_0%,transparent_38%)]"
         aria-hidden="true"
       />
       
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={reducedMotion ? false : { opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="hero__motion lg:pr-[60svh]"
+        className="hero__motion relative z-10 lg:pr-[60svh]"
       >
         <div className="hero__content relative z-10 mx-auto w-[min(1180px,calc(100%-32px))] pt-10 text-white md:w-[min(1180px,calc(100%-40px))] lg:w-[min(1180px,calc(100%-48px))] lg:pt-20">
           <span className="hero__eyebrow mb-6 mt-16 inline-flex rounded-full bg-cream/90 px-[18px] py-2.5 font-extrabold text-green-deep md:mt-8 lg:mt-0">

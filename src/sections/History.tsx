@@ -1,9 +1,9 @@
-import familyHistory from "../assets/story/family-history.webp";
+import familyHistory from "../assets/official/story/producer-with-dad.webp";
 import harvestLogistics from "../assets/official/story/harvest-logistics.webp";
 import harvestTeam from "../assets/official/story/harvest-team.webp";
 import harvestWorkerPortrait from "../assets/official/story/harvest-worker-portrait.webp";
 import harvestWorkers from "../assets/official/story/harvest-workers.webp";
-import producerWithMangoes from "../assets/manOnField.webp";
+import producerBrix from "../assets/official/story/producer-brix.webp";
 import teamInOrchard from "../assets/official/story/team-in-orchard.webp";
 import { useLanguage } from "../i18n";
 
@@ -13,8 +13,8 @@ const historyPhotos = [
     position: "50% 45%",
   },
   {
-    src: teamInOrchard,
-    position: "center",
+    src: familyHistory,
+    position: "50% 5%",
   },
   {
     src: harvestWorkers,
@@ -29,8 +29,8 @@ const historyPhotos = [
     position: "48% 45%",
   },
   {
-    src: producerWithMangoes,
-    position: "center",
+    src: producerBrix,
+    position: "50% 5%",
   },
 ];
 
@@ -69,10 +69,10 @@ export function History() {
           />
           <div className="relative overflow-hidden rounded-[8px] bg-white p-2 shadow-lift sm:p-3">
             <img
-              src={familyHistory}
+              src={teamInOrchard}
               alt={copy.history.mainImageAlt}
               className="aspect-[4/3] w-full object-cover sm:aspect-[5/4]"
-              style={{ objectPosition: "50% 45%" }}
+              style={{ objectPosition: "50% 5%" }}
               loading="lazy"
               decoding="async"
             />
