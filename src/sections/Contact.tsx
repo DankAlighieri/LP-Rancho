@@ -57,11 +57,10 @@ export function Contact() {
           action="https://api.web3forms.com/submit"
           method="POST"
         >
-          {/* Insira aqui a access_key real da conta Web3Forms antes de publicar o formulário. */}
           <input
             type="hidden"
             name="access_key"
-            value="SUBSTITUIR_PELA_ACCESS_KEY"
+            value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY}
           />
           <input
             type="checkbox"
